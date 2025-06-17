@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escuela Primaria y Secundaria Horizonte</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* Estilos para el carrusel */
+        .carousel {
+            position: relative;
+            overflow: hidden;
+        }
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .carousel-item {
+            min-width: 100%;
+        }
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .carousel-control.prev {
+            left: 10px;
+        }
+        .carousel-control.next {
+            right: 10px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Barra de Navegación -->
+    <nav class="bg-blue-800 text-white fixed w-full top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold">Escuela Horizonte</div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#inicio" class="hover:text-blue-300">Inicio</a>
+                <a href="#nosotros" class="hover:text-blue-300">Nosotros</a>
+                <a href="#programas" class="hover:text-blue-300">Programas</a>
+                <a href="#admisiones" class="hover:text-blue-300">Admisiones</a>
+                <a href="#contacto" class="hover:text-blue-300">Contacto</a>
+            </div>
+            <button class="md:hidden focus:outline-none" onclick="toggleMenu()">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <!-- Menú Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden bg-blue-800">
+            <a href="#inicio" class="block px-4 py-2 hover:bg-blue-700">Inicio</a>
+            <a href="#nosotros" class="block px-4 py-2 hover:bg-blue-700">Nosotros</a>
+            <a href="#programas" class="block px-4 py-2 hover:bg-blue-700">Programas</a>
+            <a href="#admisiones" class="block px-4 py-2 hover:bg-blue-700">Admisiones</a>
+            <a href="#contacto" class="block px-4 py-2 hover:bg-blue-700">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- Sección Inicio con Carrusel -->
+    <section id="inicio" class="pt-20">
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1" alt="Estudiantes en clase" class="w-full h-[600px] object-cover">
+                    <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <h1 class="text-4xl md:text-6xl font-bold mb-4">Bienvenidos a Escuela Horizonte</h1>
+                            <p class="text-lg md:text-xl">Formando el futuro con excelencia y valores</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7" alt="Biblioteca escolar" class="w-full h-[600px] object-cover">
+                    <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <h1 class="text-4xl md:text-6xl font-bold mb-4">Aprendizaje Innovador</h1>
+                            <p class="text-lg md:text-xl">Espacios diseñados para inspirar</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-control prev" onclick="moveCarousel(-1)">&#10094;</div>
+            <div class="carousel-control next" onclick="moveCarousel(1)">&#10095;</div>
+        </div>
+    </section>
+
+    <!-- Sección Nosotros -->
+    <section id="nosotros" class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-blue-800 mb-8">Sobre Nosotros</h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                En Escuela Horizonte, nos dedicamos a proporcionar una educación integral que combina excelencia académica con el desarrollo personal. Nuestra misión es formar estudiantes seguros, creativos y comprometidos con su comunidad.
+            </p>
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f" alt="Aula moderna" class="w-full h-64 object-cover rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mt-4">Instalaciones Modernas</h3>
+                    <p class="text-gray-600">Aulas equipadas con tecnología de punta.</p>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Actividades extracurriculares" class="w-full h-64 object-cover rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mt-4">Actividades Extracurriculares</h3>
+                    <p class="text-gray-600">Deportes, arte y clubes para todos los intereses.</p>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d" alt="Profesores capacitados" class="w-full h-64 object-cover rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mt-4">Profesores Capacitados</h3>
+                    <p class="text-gray-600">Docentes comprometidos con el éxito estudiantil.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Programas -->
+    <section id="programas" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-blue-800 mb-8">Nuestros Programas</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-semibold text-blue-800 mb-4">Primaria</h3>
+                    <p class="text-gray-700">Un currículo enfocado en el desarrollo integral, con énfasis en matemáticas, ciencias, lenguas y valores.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-semibold text-blue-800 mb-4">Secundaria</h3>
+                    <p class="text-gray-700">Preparación académica avanzada con talleres de tecnología, arte y liderazgo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Admisiones -->
+    <section id="admisiones" class="py-16 bg-blue-800 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8">Admisiones</h2>
+            <p class="text-lg max-w-3xl mx-auto mb-8">
+                ¡Únete a nuestra comunidad educativa! El proceso de admisión es sencillo y estamos aquí para ayudarte en cada paso.
+            </p>
+            <a href="#contacto" class="inline-block bg-yellow-400 text-blue-800 font-semibold py-3 px-6 rounded-full hover:bg-yellow-500">
+                Solicita Información
+            </a>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-blue-800 text-center mb-8">Contáctanos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Información de Contacto</h3>
+                    <p class="text-gray-700"><i class="fas fa-map-marker-alt mr-2"></i> Av. Educación 123, Ciudad, País</p>
+                    <p class="text-gray-700"><i class="fas fa-phone mr-2"></i> (123) 456-7890</p>
+                    <p class="text-gray-700"><i class="fas fa-envelope mr-2"></i> contacto@escuelahorizonte.edu</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Envíanos un Mensaje</h3>
+                    <div class="space-y-4">
+                        <input type="text" placeholder="Nombre" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-800">
+                        <input type="email" placeholder="Correo Electrónico" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-800">
+                        <textarea placeholder="Mensaje" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-800" rows="5"></textarea>
+                        <button class="bg-blue-800 text-white py-3 px-6 rounded-full hover:bg-blue-900">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de Página -->
+    <footer class="bg-blue-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 Escuela Horizonte. Todos los derechos reservados.</p>
+            <div class="mt-4 flex justify-center space-x-4">
+                <a href="#" class="hover:text-blue-300"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-blue-300"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-blue-300"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menú Móvil
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Carrusel
+        let currentIndex = 0;
+        const items = document.querySelectorAll('.carousel-item');
+        const totalItems = items.length;
+
+        function moveCarousel(direction) {
+            currentIndex += direction;
+            if (currentIndex < 0) currentIndex = totalItems - 1;
+            if (currentIndex >= totalItems) currentIndex = 0;
+            const carouselInner = document.querySelector('.carousel-inner');
+            carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        // Auto-avance del carrusel cada 5 segundos
+        setInterval(() => moveCarousel(1), 5000);
+    </script>
+</body>
+</html>
