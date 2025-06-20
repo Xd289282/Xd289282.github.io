@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoTaller Pro - Servicio Mecánico Profesional en Pachuca</title>
+    <meta name="description" content="Taller mecánico profesional en Pachuca. Mecánica general, afinación, cambio de aceite, frenos y más. ¡Agenda tu cita hoy!">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        /* Header fijo */
+        .header {
+            background: #1a1a1a;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ff6b35;
+        }
+        .header-cta {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        .whatsapp-btn {
+            background: #25d366;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .whatsapp-btn:hover {
+            background: #20b954;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+        .phone-link {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), url('https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding-top: 80px; /* Espacio para el header fijo */
+        }
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .cta-primary {
+            background: #ff6b35;
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .cta-primary:hover {
+            background: #e55a2b;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+        }
+        .cta-secondary {
+            background: transparent;
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border: 2px solid white;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .cta-secondary:hover {
+            background: white;
+            color: #333;
+        }
+        /* Servicios */
+        .services {
+            padding: 5rem 2rem;
+            background: #f8f9fa;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: #666;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease-in-out;
+            border-top: 4px solid #ff6b35;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+        .service-icon {
+            font-size: 2.5rem;
+            color: #ff6b35;
+            margin-bottom: 1.5rem;
+        }
+        .service-card h3 {
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        .service-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            min-height: 50px;
+        }
+        .service-price {
+            color: #ff6b35;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        /* Galería del Taller */
+        .gallery {
+            padding: 5rem 2rem;
+            background: white;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .gallery-item {
+            position: relative;
+            height: 250px;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+        /* Testimonios */
+        .testimonials {
+            padding: 5rem 2rem;
+            background: #1a1a1a;
+            color: white;
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .testimonial-card {
+            background: #2a2a2a;
+            border-radius: 15px;
+            padding: 2rem;
+            padding-top: 3rem;
+            position: relative;
+        }
+        .testimonial-card::before {
+            content: '\f10d';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 2.5rem;
+            color: #ff6b35;
+            position: absolute;
+            top: 15px;
+            left: 20px;
+        }
+        .testimonial-text {
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #ff6b35;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        .author-info h4 {
+            color: #ff6b35;
+            margin-bottom: 0.2rem;
+        }
+        .author-info p {
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+        /* Promociones */
+        .promotions {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #ff6b35, #ff8c42);
+            color: white;
+            text-align: center;
+        }
+        .promo-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .promo-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+        .promo-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        .promo-text {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        /* Contacto */
+        .contact {
+            padding: 5rem 2rem;
+            background: #f8f9fa;
+        }
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: flex-start;
+        }
+        .contact-info, .contact-form {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        .contact-info h3, .contact-form h3 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: #1a1a1a;
+        }
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        .info-icon {
+            font-size: 1.5rem;
+            color: #ff6b35;
+            margin-right: 1.5rem;
+            width: 30px;
+            text-align: center;
+        }
+        .info-item div {
+            line-height: 1.5;
+        }
+        .info-item a {
+            color: #ff6b35;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .info-item a:hover {
+            color: #e55a2b;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+            font-weight: bold;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #ff6b35;
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2);
+        }
+        .map-container {
+            margin-top: 2rem;
+            height: 250px;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+        }
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: #aaa;
+            padding: 3rem 2rem;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: #2a2a2a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+        .social-links a:hover {
+            background: #ff6b35;
+            transform: translateY(-3px);
+        }
+        .footer .logo {
+            font-size: 1.5rem;
+        }
+        /* Botón flotante de WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4); }
+            50% { transform: scale(1.1); box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6); }
+            100% { transform: scale(1); box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4); }
+        }
+        /* Responsive */
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            .hero {
+                height: auto;
+                min-height: calc(100vh - 130px);
+                padding: 4rem 1rem;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .promo-title {
+                font-size: 2rem;
+            }
+            .footer-content {
+                text-align: center;
+                flex-direction: column;
+                justify-content: center;
+            }
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                right: 20px;
+                bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="#" class="logo" style="text-decoration: none;"><i class="fas fa-car-garage"></i> AutoTaller Pro</a>
+            <div class="header-cta">
+                <a href="tel:+527711234567" class="phone-link">
+                    <i class="fas fa-phone-alt"></i> 771-123-4567
+                </a>
+                <a href="https://wa.me/527711234567?text=Hola,%20me%20interesa%20agendar%20una%20cita" class="whatsapp-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Servicio Mecánico de Confianza en Pachuca</h1>
+            <p class="hero-subtitle">Más de 15 años brindando soluciones, calidad y honestidad. Tu auto en las mejores manos.</p>
+            <div class="cta-buttons">
+                <a href="#contacto" class="cta-primary">Agenda tu Cita</a>
+                <a href="#servicios" class="cta-secondary">Ver Servicios</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="services">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <p class="section-subtitle">Ofrecemos una solución integral para el mantenimiento y reparación de tu vehículo. Especialistas en todas las marcas.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-wrench"></i></div>
+                    <h3>Mecánica General</h3>
+                    <p>Diagnóstico y reparación completa de motor, transmisión, sistemas eléctricos y más.</p>
+                    <div class="service-price">Diagnóstico sin costo</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-cogs"></i></div>
+                    <h3>Afinación Mayor</h3>
+                    <p>Afinación completa: bujías, filtros, aceite, líquidos y revisión de seguridad de 20 puntos.</p>
+                    <div class="service-price">Desde $800</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-oil-can"></i></div>
+                    <h3>Cambio de Aceite</h3>
+                    <p>Servicio express de cambio de aceite y filtro con las mejores marcas del mercado.</p>
+                    <div class="service-price">Desde $400</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-dot-circle"></i></div>
+                    <h3>Sistema de Frenos</h3>
+                    <p>Revisión, rectificación y cambio de balatas, discos y líquido de frenos para tu seguridad.</p>
+                    <div class="service-price">Desde $600</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-car-alt"></i></div>
+                    <h3>Suspensión y Dirección</h3>
+                    <p>Reparación de amortiguadores, resortes, horquillas y sistema de dirección completo.</p>
+                    <div class="service-price">Desde $1,200</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-laptop-medical"></i></div>
+                    <h3>Diagnóstico por Computadora</h3>
+                    <p>Detección precisa de fallas con escáner profesional para todos los sistemas electrónicos.</p>
+                    <div class="service-price">Desde $250</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria" class="gallery">
+        <div class="container">
+            <h2 class="section-title">Nuestras Instalaciones</h2>
+            <p class="section-subtitle">Conoce nuestro taller: un espacio limpio, ordenado y equipado con la mejor tecnología.</p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Instalaciones del taller">
+                    <div class="gallery-overlay"><h3>Instalaciones Modernas</h3></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1621996346565-e326b20f5451?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Mecánico trabajando en motor">
+                    <div class="gallery-overlay"><h3>Técnicos Certificados</h3></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1553787765-b453b1c43538?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Auto en elevador hidráulico">
+                    <div class="gallery-overlay"><h3>Equipo de Vanguardia</h3></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1617153207912-f2caf33458a4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Diagnóstico por computadora">
+                    <div class="gallery-overlay"><h3>Tecnología de Punta</h3></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="promotions">
+        <div class="promo-content">
+            <div class="promo-badge"><i class="fas fa-fire"></i> OFERTA DEL MES</div>
+            <h2 class="promo-title">¡Revisión de Seguridad GRATIS!</h2>
+            <p class="promo-text">En cualquier servicio mayor a $1,000, recibe una revisión completa de 25 puntos de seguridad (frenos, llantas, suspensión, niveles y más) totalmente gratis. ¡Tu seguridad es nuestra prioridad!</p>
+            <a href="https://wa.me/527711234567?text=Hola,%20me%20interesa%20la%20promoción%20de%20revisión%20gratis" class="cta-primary" target="_blank">¡La quiero!</a>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Lo que Dicen Nuestros Clientes</h2>
+            <p class="section-subtitle" style="color: #ccc;">La confianza de nuestros clientes es nuestro mejor motor.</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Excelente servicio, muy profesionales y sobre todo honestos. Mi carro quedó como nuevo después de la afinación. Los recomiendo ampliamente."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MR</div>
+                        <div class="author-info">
+                            <h4>María Rodríguez</h4>
+                            <p>Cliente Satisfecha</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Llevé mi auto por un ruido raro en los frenos y me dieron un diagnóstico claro y un precio justo. El trabajo fue rápido y de calidad. Muy confiables."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">CL</div>
+                        <div class="author-info">
+                            <h4>Carlos López</h4>
+                            <p>Cliente Frecuente</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"La atención es de primera desde que llamas para agendar. Ya son mi taller de cabecera en Pachuca. Siempre puntuales y amables."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AS</div>
+                        <div class="author-info">
+                            <h4>Ana Sánchez</h4>
+                            <p>Cliente Leal</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contáctanos</h2>
+            <p class="section-subtitle">Estamos listos para atenderte. Agenda tu cita o solicita un presupuesto sin compromiso.</p>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Información</h3>
+                    <div class="info-item">
+                        <i class="info-icon fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Dirección:</strong><br>
+                            Av. Revolución 456, Col. Centro<br>
+                            Pachuca de Soto, Hidalgo, C.P. 42000
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="info-icon fas fa-phone-alt"></i>
+                        <div>
+                            <strong>Teléfono:</strong><br>
+                            <a href="tel:+527711234567">771-123-4567</a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="info-icon fab fa-whatsapp"></i>
+                        <div>
+                            <strong>WhatsApp:</strong><br>
+                            <a href="https://wa.me/527711234567?text=Hola,%20quisiera%20agendar%20una%20cita" target="_blank">Enviar Mensaje Directo</a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="info-icon fas fa-clock"></i>
+                        <div>
+                            <strong>Horarios:</strong><br>
+                            Lunes a Viernes: 8:00 AM - 6:00 PM<br>
+                            Sábado: 8:00 AM - 4:00 PM
+                        </div>
+                    </div>
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3745.245228962451!2d-98.7342699850789!3d20.1235379864739!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1a710e20689e3%3A0x1e3c88b7e7c85672!2sPachuca%20Centro%2C%20Pachuca%2C%20Hgo.!5e0!3m2!1ses-419!2smx!4v1687399268652!5m2!1ses-419!2smx"
+                            width="100%"
+                            height="100%"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Agenda tu Cita</h3>
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo *</label>
+                            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre y apellido">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono / WhatsApp *</label>
+                            <input type="tel" id="telefono" name="telefono" required placeholder="A 10 dígitos">
+                        </div>
+                        <div class="form-group">
+                            <label for="vehiculo">Marca y Modelo del Vehículo</label>
+                            <input type="text" id="vehiculo" name="vehiculo" placeholder="Ej: Nissan Sentra 2018">
+                        </div>
+                        <div class="form-group">
+                            <label for="servicio">Servicio Requerido</label>
+                            <select id="servicio" name="servicio">
+                                <option value="">-- Selecciona un servicio --</option>
+                                <option value="Mecánica General">Mecánica General</option>
+                                <option value="Afinación Mayor">Afinación Mayor</option>
+                                <option value="Cambio de Aceite">Cambio de Aceite</option>
+                                <option value="Frenos">Sistema de Frenos</option>
+                                <option value="Suspensión">Suspensión y Dirección</option>
+                                <option value="Diagnóstico">Diagnóstico por Computadora</option>
+                                <option value="Otro">Otro (especificar abajo)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje Adicional</label>
+                            <textarea id="mensaje" name="mensaje" rows="4" placeholder="Describe brevemente la falla de tu auto o el servicio que necesitas."></textarea>
+                        </div>
+                        <button type="submit" class="cta-primary" style="width: 100%; border: none;">Enviar Solicitud</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="logo"><i class="fas fa-car-garage"></i> AutoTaller Pro</div>
+            <p>&copy; 2024 AutoTaller Pro. Todos los derechos reservados. Pachuca, Hidalgo.</p>
+            <div class="social-links">
+                <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/527711234567?text=Hola,%20necesito%20ayuda%20con%20mi%20auto." class="whatsapp-float" target="_blank" title="Contáctanos por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
