@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Veterinaria Amigo Fiel - Cuidamos de tu mascota</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Estilo base para la tipografía y colores */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FEFBF6; /* Un blanco hueso cálido */
+            color: #4A4A4A; /* Gris oscuro para texto */
+        }
+        /* Colores personalizados para Tailwind */
+        .bg-primary { background-color: #3B82F6; } /* Azul principal */
+        .bg-secondary { background-color: #ECFDF5; } /* Verde menta muy claro */
+        .text-primary { color: #3B82F6; }
+        .text-accent { color: #10B981; } /* Verde para acentos */
+        .border-accent { border-color: #10B981; }
+        .btn {
+            @apply inline-block px-6 py-3 rounded-lg text-white font-semibold shadow-md transition-transform duration-300 ease-in-out;
+        }
+        .btn-primary {
+            @apply bg-primary hover:scale-105;
+        }
+        .btn-secondary {
+            @apply bg-accent text-white hover:scale-105;
+        }
+        h2 {
+            @apply text-3xl md:text-4xl font-bold text-gray-800 text-center mb-4;
+        }
+        h3 {
+            @apply text-xl font-semibold text-gray-700;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- ===== HEADER ===== -->
+    <header id="header" class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo y Nombre de la Clínica -->
+            <a href="#" class="flex items-center space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><path d="M14.5 9.5a2 2 0 0 1-2 2H11a2 2 0 0 1-2-2v-1a2 2 0 0 1 2-2h1.5a2 2 0 0 1 2 2v1Z"/><path d="M12 22a10 10 0 0 0 10-10H2a10 10 0 0 0 10 10Z"/><path d="M12 2a4 4 0 0 0-4 4v2h8V6a4 4 0 0 0-4-4Z"/></svg>
+                <span class="text-xl font-bold text-gray-800">Amigo Fiel</span>
+            </a>
+            <!-- Menú de Navegación (Desktop) -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#services" class="text-gray-600 hover:text-primary transition-colors">Servicios</a>
+                <a href="#about" class="text-gray-600 hover:text-primary transition-colors">Nosotros</a>
+                <a href="#testimonials" class="text-gray-600 hover:text-primary transition-colors">Testimonios</a>
+                <a href="#contact" class="text-gray-600 hover:text-primary transition-colors">Contacto</a>
+            </div>
+            <a href="#appointment-form" class="hidden md:inline-block btn btn-primary">Agendar Cita</a>
+            <!-- Botón de Menú (Móvil) -->
+            <button id="mobile-menu-button" class="md:hidden">
+                <i data-lucide="menu" class="h-6 w-6 text-gray-800"></i>
+            </button>
+        </nav>
+        <!-- Menú de Navegación (Móvil) -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 flex flex-col space-y-4">
+            <a href="#services" class="text-gray-600 hover:text-primary transition-colors">Servicios</a>
+            <a href="#about" class="text-gray-600 hover:text-primary transition-colors">Nosotros</a>
+            <a href="#testimonials" class="text-gray-600 hover:text-primary transition-colors">Testimonios</a>
+            <a href="#contact" class="text-gray-600 hover:text-primary transition-colors">Contacto</a>
+            <a href="#appointment-form" class="btn btn-primary mt-2">Agendar Cita</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== HERO SECTION ===== -->
+        <section id="home" class="relative min-h-[60vh] md:min-h-[80vh] flex items-center">
+            <div class="absolute inset-0 bg-black opacity-40"></div>
+            <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=2069&auto=format&fit=crop" 
+                 alt="[Perro feliz jugando en un parque]" class="absolute inset-0 w-full h-full object-cover">
+            <div class="container mx-auto px-6 relative text-center text-white">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 drop-shadow-lg">
+                    Cuidamos a tu mascota como a uno más de la familia
+                </h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto drop-shadow-md">
+                    El mejor cuidado profesional con el amor y la dedicación que tu compañero merece.
+                </p>
+                <div class="mt-8">
+                    <a href="#services" class="btn btn-secondary text-lg">Ver Servicios</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== GALLERY SECTION ===== -->
+        <section id="about" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                     <h2 class="text-accent">Conoce Nuestro Espacio</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Instalaciones modernas y un equipo apasionado listos para recibir a tu mascota.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="grid gap-4">
+                        <div><img class="h-auto max-w-full rounded-lg shadow-md hover:scale-105 transition-transform" src="https://images.unsplash.com/photo-1599428666213-aa7ff9d47975?q=80&w=1974&auto=format&fit=crop" alt="[Sala de espera de la veterinaria]"></div>
+                        <div><img class="h-auto max-w-full rounded-lg shadow-md hover:scale-105 transition-transform" src="https://images.unsplash.com/photo-1583258282369-1593c6f497a7?q=80&w=1964&auto=format&fit=crop" alt="[Veterinario examinando un perro]"></div>
+                    </div>
+                    <div class="grid gap-4">
+                        <div><img class="h-auto max-w-full rounded-lg shadow-md hover:scale-105 transition-transform" src="https://images.unsplash.com/photo-1598930230137-27b0b2215416?q=80&w=2070&auto=format&fit=crop" alt="[Equipo veterinario sonriendo]"></div>
+                        <div><img class="h-auto max-w-full rounded-lg shadow-md hover:scale-105 transition-transform" src="https://images.unsplash.com/photo-1625244908836-390b10629910?q=80&w=1974&auto=format&fit=crop" alt="[Gato en la mesa de consulta]"></div>
+                    </div>
+                     <div class="grid gap-4">
+                        <div><img class="h-auto max-w-full rounded-lg shadow-md hover:scale-105 transition-transform" src="https://images.unsplash.com/photo-1596791552594-a423e80f9754?q=80&w=1974&auto=format&fit=crop" alt="[Consultorio veterinario equipado]"></div>
+                        <div><img class="h-auto max-w-full rounded-lg shadow-md hover:scale-105 transition-transform" src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?q=80&w=2070&auto=format&fit=crop" alt="[Perros felices juntos]"></div>
+                    </div>
+                     <div class="grid gap-4">
+                        <div><img class="h-auto max-w-full rounded-lg shadow-md hover:scale-105 transition-transform" src="https://images.unsplash.com/photo-1517451330029-7897cd057c36?q=80&w=2070&auto=format&fit=crop" alt="[Mujer abrazando a su perro]"></div>
+                        <div><img class="h-auto max-w-full rounded-lg shadow-md hover:scale-105 transition-transform" src="https://images.unsplash.com/photo-1605034313761-9eaace442044?q=80&w=1974&auto=format&fit=crop" alt="[Veterinaria revisando un gato]"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SERVICES SECTION ===== -->
+        <section id="services" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2>Nuestros Servicios</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Ofrecemos un cuidado integral para la salud y bienestar de tu mascota.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service Card -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-primary">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="bg-blue-100 p-3 rounded-full"><i data-lucide="stethoscope" class="text-primary"></i></div>
+                            <h3>Consulta General</h3>
+                        </div>
+                        <p class="text-gray-600">Revisiones completas para diagnosticar y prevenir enfermedades, asegurando la salud de tu amigo.</p>
+                    </div>
+                    <!-- Service Card -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-primary">
+                         <div class="flex items-center gap-4 mb-4">
+                            <div class="bg-blue-100 p-3 rounded-full"><i data-lucide="syringe" class="text-primary"></i></div>
+                            <h3>Vacunación</h3>
+                        </div>
+                        <p class="text-gray-600">Protege a tu mascota contra enfermedades graves con nuestros esquemas de vacunación personalizados.</p>
+                    </div>
+                    <!-- Service Card -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-primary">
+                         <div class="flex items-center gap-4 mb-4">
+                            <div class="bg-blue-100 p-3 rounded-full"><i data-lucide="bug" class="text-primary"></i></div>
+                            <h3>Desparasitación</h3>
+                        </div>
+                        <p class="text-gray-600">Tratamientos efectivos para mantener a tu mascota libre de parásitos internos y externos.</p>
+                    </div>
+                    <!-- Service Card -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-accent">
+                         <div class="flex items-center gap-4 mb-4">
+                            <div class="bg-green-100 p-3 rounded-full"><i data-lucide="heart-pulse" class="text-accent"></i></div>
+                            <h3>Cirugías y Hospitalización</h3>
+                        </div>
+                        <p class="text-gray-600">Procedimientos quirúrgicos seguros y área de recuperación monitoreada para un cuidado postoperatorio óptimo.</p>
+                    </div>
+                    <!-- Service Card -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-accent">
+                         <div class="flex items-center gap-4 mb-4">
+                            <div class="bg-green-100 p-3 rounded-full"><i data-lucide="scissors" class="text-accent"></i></div>
+                            <h3>Estética Canina y Felina</h3>
+                        </div>
+                        <p class="text-gray-600">Servicios de baño, corte de pelo y cuidado estético para que tu mascota luzca y se sienta genial.</p>
+                    </div>
+                    <!-- Service Card -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-accent">
+                         <div class="flex items-center gap-4 mb-4">
+                            <div class="bg-green-100 p-3 rounded-full"><i data-lucide="shopping-cart" class="text-accent"></i></div>
+                            <h3>Venta de Alimento y Accesorios</h3>
+                        </div>
+                        <p class="text-gray-600">Encuentra alimento premium, dietas de prescripción y los mejores accesorios para tu compañero.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TESTIMONIALS SECTION ===== -->
+        <section id="testimonials" class="py-16 md:py-24 bg-secondary">
+            <div class="container mx-auto px-6">
+                <h2 class="text-accent">Lo que nuestros clientes dicen</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+                    <!-- Testimonial Card -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=2000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=" alt="[Golden retriever sonriendo]" class="w-24 h-24 mx-auto rounded-full -mt-16 border-4 border-white shadow-md">
+                        <p class="mt-4 text-gray-600 italic">"El trato es increíble, siempre nos reciben con una sonrisa. Mi perro Max adora venir aquí. ¡Son los mejores!"</p>
+                        <h4 class="font-bold mt-4 text-primary">Carla F. y Max</h4>
+                    </div>
+                    <!-- Testimonial Card -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                        <img src="https://images.unsplash.com/photo-1596854407944-bf87f6fdd49e?q=80&w=2000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=" alt="[Gato de ojos azules]" class="w-24 h-24 mx-auto rounded-full -mt-16 border-4 border-white shadow-md">
+                        <p class="mt-4 text-gray-600 italic">"Traje a mi gatita Pelusa para una cirugía y todo salió perfecto. El cuidado postoperatorio fue excelente."</p>
+                        <h4 class="font-bold mt-4 text-primary">José M. y Pelusa</h4>
+                    </div>
+                    <!-- Testimonial Card -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                        <img src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?q=80&w=2000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=" alt="[Cachorro pug]" class="w-24 h-24 mx-auto rounded-full -mt-16 border-4 border-white shadow-md">
+                        <p class="mt-4 text-gray-600 italic">"Siempre encuentro el alimento especial para mi perro aquí y los consejos que me dan son muy útiles. ¡Totalmente recomendados!"</p>
+                        <h4 class="font-bold mt-4 text-primary">Ana G. y Bruno</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CONTACT & APPOINTMENT SECTION ===== -->
+        <section id="contact" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-primary">Contáctanos y Agenda una Cita</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
+                    <!-- Info y Mapa -->
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="flex items-center gap-2"><i data-lucide="clock" class="text-accent"></i>Horarios de Atención</h3>
+                            <div class="mt-2 pl-8 text-gray-600 space-y-1">
+                                <p><strong>Lunes a Viernes:</strong> 9:00 AM - 7:00 PM</p>
+                                <p><strong>Sábados:</strong> 10:00 AM - 4:00 PM</p>
+                                <p><strong>Domingos:</strong> Cerrado (Solo Urgencias)</p>
+                            </div>
+                        </div>
+                        <div>
+                           <h3 class="flex items-center gap-2"><i data-lucide="map-pin" class="text-accent"></i>Nuestra Ubicación</h3>
+                           <p class="mt-2 pl-8 text-gray-600">Av. de la Reforma 222, Colonia Juárez, 06600 Ciudad de México, CDMX</p>
+                           <!-- Mapa de Google -->
+                           <div class="mt-4 rounded-lg overflow-hidden shadow-lg border">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.536950284577!2d-99.1691498850934!3d19.43232898688469!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f8d48a04a625%3A0x684136e923c2240b!2sAv.%20P.%C2%BA%20de%20la%20Reforma%20222%2C%20Ju%C3%A1rez%2C%20Cuauht%C3%A9moc%2C%2006600%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses-419!2smx!4v1678822830386!5m2!1ses-419!2smx"
+                                    width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                           </div>
+                        </div>
+                        <div>
+                            <h3 class="flex items-center gap-2"><i data-lucide="message-square" class="text-accent"></i>Contacto Directo</h3>
+                            <div class="mt-4 flex flex-wrap gap-4 pl-8">
+                                <a href="tel:+525512345678" class="flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors">
+                                    <i data-lucide="phone"></i> Llamar
+                                </a>
+                                <a href="https://wa.me/525512345678" target="_blank" class="flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors">
+                                    <i data-lucide="message-circle"></i> WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Formulario de Cita -->
+                    <div id="appointment-form" class="bg-gray-50 p-8 rounded-xl shadow-lg border">
+                        <h3 class="mb-6 text-center text-2xl font-bold text-gray-700">Agenda tu Cita</h3>
+                        <form action="#" method="POST" class="space-y-6">
+                            <div>
+                                <label for="owner-name" class="block text-sm font-medium text-gray-700">Nombre del Dueño</label>
+                                <input type="text" id="owner-name" name="owner-name" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary">
+                            </div>
+                            <div>
+                                <label for="pet-name" class="block text-sm font-medium text-gray-700">Nombre de la Mascota</label>
+                                <input type="text" id="pet-name" name="pet-name" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary">
+                            </div>
+                            <div>
+                                <label for="service-type" class="block text-sm font-medium text-gray-700">Tipo de Servicio</label>
+                                <select id="service-type" name="service-type" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary bg-white">
+                                    <option>Consulta General</option>
+                                    <option>Vacunación</option>
+                                    <option>Desparasitación</option>
+                                    <option>Cirugía</option>
+                                    <option>Hospitalización</option>
+                                    <option>Estética</option>
+                                    <option>Revisión</option>
+                                </select>
+                            </div>
+                             <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700">Teléfono de Contacto</label>
+                                <input type="tel" id="phone" name="phone" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary">
+                            </div>
+                            <div>
+                                <label for="preferred-date" class="block text-sm font-medium text-gray-700">Fecha Preferida</label>
+                                <input type="date" id="preferred-date" name="preferred-date" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary">
+                            </div>
+                            <div>
+                                <button type="submit" class="w-full btn btn-secondary text-lg">
+                                    Confirmar Cita
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ===== BLOG SECTION (Optional) ===== -->
+        <section id="blog" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-accent">Consejos para tu Mascota</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Información útil para mantener a tu compañero feliz y saludable.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Blog Post Card -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
+                        <img src="https://images.unsplash.com/photo-1592194991134-93349c7b94d9?q=80&w=2070&auto=format&fit=crop" class="w-full h-48 object-cover" alt="[Perro comiendo de un tazón]">
+                        <div class="p-6">
+                            <h3 class="mb-2">¿Cómo elegir el mejor alimento para tu perro?</h3>
+                            <p class="text-gray-600 mb-4">Descubre las claves para una nutrición balanceada según su edad, raza y tamaño.</p>
+                            <a href="#" class="font-semibold text-primary hover:underline">Leer más &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Blog Post Card -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
+                        <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?q=80&w=2080&auto=format&fit=crop" class="w-full h-48 object-cover" alt="[Gato jugando con un juguete]">
+                        <div class="p-6">
+                            <h3 class="mb-2">5 señales de que tu gato está estresado</h3>
+                            <p class="text-gray-600 mb-4">Aprende a identificar los signos de estrés en tu felino y cómo ayudarlo a relajarse.</p>
+                            <a href="#" class="font-semibold text-primary hover:underline">Leer más &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Blog Post Card -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
+                        <img src="https://images.unsplash.com/photo-1589923188902-c4372c36a8ac?q=80&w=1974&auto=format&fit=crop" class="w-full h-48 object-cover" alt="[Persona paseando a su perro]">
+                        <div class="p-6">
+                            <h3 class="mb-2">La importancia del paseo diario para tu mascota</h3>
+                            <p class="text-gray-600 mb-4">No es solo ejercicio, es estimulación mental y social. Te contamos sus beneficios.</p>
+                            <a href="#" class="font-semibold text-primary hover:underline">Leer más &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <div>
+                    <h4 class="text-lg font-semibold">Clínica Veterinaria Amigo Fiel</h4>
+                    <p class="mt-2 text-gray-400">Tu confianza, nuestra pasión.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold">Enlaces Rápidos</h4>
+                    <ul class="mt-2 space-y-1 text-gray-400">
+                        <li><a href="#services" class="hover:text-white">Servicios</a></li>
+                        <li><a href="#about" class="hover:text-white">Nosotros</a></li>
+                        <li><a href="#contact" class="hover:text-white">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold">Síguenos</h4>
+                    <div class="flex justify-center md:justify-start space-x-4 mt-2">
+                        <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-6 text-center text-gray-500 text-sm">
+                <p>&copy; <span id="year"></span> Clínica Veterinaria Amigo Fiel. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Inicializa Lucide Icons
+        lucide.createIcons();
+
+        // Lógica para el menú móvil
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            // Cambiar el ícono de menú a 'x' y viceversa
+            const icon = mobileMenuButton.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.setAttribute('data-lucide', 'menu');
+            } else {
+                icon.setAttribute('data-lucide', 'x');
+            }
+            lucide.createIcons();
+        });
+        
+        // Cerrar menú móvil al hacer clic en un enlace
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuButton.querySelector('i').setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+            });
+        });
+
+        // Actualizar año en el footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+    </script>
+
+</body>
+</html>
