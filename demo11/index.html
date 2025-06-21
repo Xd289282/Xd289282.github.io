@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cabañas del Bosque - Tu Refugio en la Naturaleza</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon (Icono de la pestaña del navegador) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏡</text></svg>">
+
+    <style>
+        /* Estilos personalizados y configuración de Tailwind */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://placehold.co/1920x1080/334237/FFFFFF?text=Bienvenidos');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- =========== Header =========== -->
+    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-green-900">Cabañas del Bosque</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#galeria" class="text-gray-600 hover:text-green-800 transition-colors">Galería</a>
+                <a href="#servicios" class="text-gray-600 hover:text-green-800 transition-colors">Servicios</a>
+                <a href="#ubicacion" class="text-gray-600 hover:text-green-800 transition-colors">Ubicación</a>
+                <a href="#reserva" class="bg-green-700 text-white px-4 py-2 rounded-lg hover:bg-green-800 transition-transform transform hover:scale-105">Reservar</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-600 hover:text-green-800 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4">
+            <a href="#galeria" class="block py-2 text-gray-600 hover:text-green-800">Galería</a>
+            <a href="#servicios" class="block py-2 text-gray-600 hover:text-green-800">Servicios</a>
+            <a href="#ubicacion" class="block py-2 text-gray-600 hover:text-green-800">Ubicación</a>
+            <a href="#reserva" class="block mt-2 bg-green-700 text-white px-4 py-2 rounded-lg text-center hover:bg-green-800">Reservar</a>
+        </div>
+    </header>
+
+    <!-- =========== Hero Section =========== -->
+    <section class="hero-bg h-[60vh] flex items-center justify-center">
+        <div class="text-center text-white p-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">Tu Refugio en la Naturaleza</h1>
+            <p class="text-lg md:text-2xl font-light drop-shadow-md">Desconecta del mundo, conecta contigo.</p>
+        </div>
+    </section>
+
+    <!-- =========== Main Content =========== -->
+    <main class="container mx-auto px-6 py-12">
+
+        <!-- =========== Galería Section =========== -->
+        <section id="galeria" class="my-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center text-green-900 mb-8">Nuestras Cabañas y Entorno</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Imagen 1 -->
+                <div class="overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <img src="https://placehold.co/600x400/8B4513/FFFFFF?text=Cabaña+Acogedora" alt="Exterior de una cabaña de madera en el bosque" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300">
+                </div>
+                <!-- Imagen 2 -->
+                <div class="overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <img src="https://placehold.co/600x400/228B22/FFFFFF?text=Paisaje+Verde" alt="Paisaje de un bosque verde con árboles altos" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300">
+                </div>
+                <!-- Imagen 3 -->
+                <div class="overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <img src="https://placehold.co/600x400/D2691E/FFFFFF?text=Interior+con+Chimenea" alt="Interior de una cabaña con una chimenea encendida" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300">
+                </div>
+                <!-- Imagen 4 -->
+                <div class="overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <img src="https://placehold.co/600x400/4682B4/FFFFFF?text=Río+Cercano" alt="Un río tranquilo corriendo a través del bosque" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300">
+                </div>
+                <!-- Imagen 5 -->
+                <div class="overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <img src="https://placehold.co/600x400/FF4500/FFFFFF?text=Fogata+Nocturna" alt="Una fogata encendida bajo un cielo estrellado" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300">
+                </div>
+                <!-- Imagen 6 -->
+                <div class="overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <img src="https://placehold.co/600x400/556B2F/FFFFFF?text=Detalles+de+Madera" alt="Detalle de la construcción de madera de una cabaña" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300">
+                </div>
+            </div>
+        </section>
+
+        <!-- =========== Servicios Section =========== -->
+        <section id="servicios" class="my-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center text-green-900 mb-12">Servicios para una Estancia Perfecta</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-center">
+                <!-- Servicio 1 -->
+                <div class="flex flex-col items-center">
+                    <div class="bg-green-100 p-4 rounded-full mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-800" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+                    </div>
+                    <h3 class="font-semibold text-gray-700">Cabañas Equipadas</h3>
+                </div>
+                <!-- Servicio 2 -->
+                <div class="flex flex-col items-center">
+                    <div class="bg-green-100 p-4 rounded-full mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-800" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1.333a1 1 0 01-2 0V3a1 1 0 011-1zm6.268 3.033a1 1 0 01.033 1.41l-4.243 4.242a1 1 0 01-1.415-1.414l4.243-4.243a1 1 0 011.382-.033zM3.732 5.033a1 1 0 011.382.033l4.243 4.242a1 1 0 11-1.415 1.415L3.765 6.443a1 1 0 01-.033-1.41zM2 12a1 1 0 011-1h14a1 1 0 110 2H3a1 1 0 01-1-1zm2 3a1 1 0 00-1 1v1a1 1 0 102 0v-1a1 1 0 00-1-1zm12 0a1 1 0 00-1 1v1a1 1 0 102 0v-1a1 1 0 00-1-1z" clip-rule="evenodd" /></svg>
+                    </div>
+                    <h3 class="font-semibold text-gray-700">Chimenea Interior</h3>
+                </div>
+                <!-- Servicio 3 -->
+                <div class="flex flex-col items-center">
+                    <div class="bg-green-100 p-4 rounded-full mb-3">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-800" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                    </div>
+                    <h3 class="font-semibold text-gray-700">Senderismo Guiado</h3>
+                </div>
+                <!-- Servicio 4 -->
+                <div class="flex flex-col items-center">
+                    <div class="bg-green-100 p-4 rounded-full mb-3">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-800" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7.C14 5 16.09 5.777 17.657 7.343A8 8 0 0117.657 18.657z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1014.12 11.88a3 3 0 00-4.242 4.242z" /></svg>
+                    </div>
+                    <h3 class="font-semibold text-gray-700">Zona de Fogatas</h3>
+                </div>
+                <!-- Servicio 5 -->
+                <div class="flex flex-col items-center">
+                    <div class="bg-green-100 p-4 rounded-full mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-800" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2a4 4 0 00-4-4H5a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2zm8-10V5a2 2 0 00-2-2H9a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2zM9 17v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2h-2a2 2 0 00-2 2z" /></svg>
+                    </div>
+                    <h3 class="font-semibold text-gray-700">Estacionamiento</h3>
+                </div>
+                <!-- Servicio 6 -->
+                <div class="flex flex-col items-center">
+                     <div class="bg-green-100 p-4 rounded-full mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-800" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2h8a2 2 0 002-2v-1a2 2 0 012-2h1.945M7.761 14h8.478" /></svg>
+                    </div>
+                    <h3 class="font-semibold text-gray-700">Actividades Varias</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========== Ubicación y Reserva Section =========== -->
+        <section class="my-16 scroll-mt-20">
+             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Ubicación y Mapa -->
+                <div id="ubicacion">
+                    <h2 class="text-3xl font-bold text-green-900 mb-4">Encuéntranos</h2>
+                    <p class="text-gray-600 mb-4">Estamos ubicados en el corazón del bosque, un lugar perfecto para escapar de la rutina. </p>
+                    <p class="font-semibold mb-4">Dirección: Camino al Bosque Km 5, San Miguel Regla, Hidalgo, México.</p>
+                    <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
+                       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3745.397022204781!2d-98.5816982855903!3d20.15878438647706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d0_f424b967d363%3A0x6e7e606a5a4a62e3!2sSan%20Miguel%20Regla%2C%20Hgo.!5e0!3m2!1ses!2smx!4v1684351298765!5m2!1ses!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <!-- Formulario de Reserva -->
+                <div id="reserva" class="bg-white p-8 rounded-lg shadow-xl scroll-mt-24">
+                    <h2 class="text-3xl font-bold text-green-900 mb-6">Solicita tu Reserva</h2>
+                    <form action="#" method="POST">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Nombre Completo</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email o Teléfono</label>
+                            <input type="text" id="contact" name="contact" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label for="dates" class="block text-gray-700 font-medium mb-2">Fechas de Estancia</label>
+                                <input type="text" id="dates" name="dates" placeholder="Ej: 15 al 18 de Julio" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                            </div>
+                            <div>
+                                <label for="guests" class="block text-gray-700 font-medium mb-2">Número de Personas</label>
+                                <input type="number" id="guests" name="guests" min="1" max="10" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                            </div>
+                        </div>
+                         <div class="mb-4">
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Mensaje (Opcional)</label>
+                            <textarea id="message" name="message" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-green-700 text-white font-bold py-3 px-4 rounded-lg hover:bg-green-800 transition-all transform hover:scale-105">
+                            Enviar Solicitud
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =========== Contacto Rápido Section =========== -->
+    <section class="bg-green-800 text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-4">¿Preguntas? Contáctanos</h2>
+            <p class="mb-8 max-w-2xl mx-auto">Estamos para ayudarte a planear tu escapada perfecta. ¡No dudes en escribirnos o llamarnos!</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://wa.me/5215512345678" target="_blank" class="bg-white text-green-800 font-bold py-3 px-6 rounded-lg flex items-center gap-2 hover:bg-green-100 transition-transform transform hover:scale-105">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943s-.182-.15-.38-.25z"/></svg>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="tel:+525512345678" class="bg-white text-green-800 font-bold py-3 px-6 rounded-lg flex items-center gap-2 hover:bg-green-100 transition-transform transform hover:scale-105">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 16 16"><path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.938 17.938 0 0 0 4.154 6.608 17.938 17.938 0 0 0 6.608 4.154c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/></svg>
+                    <span>Llamar Ahora</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========== Footer =========== -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <div>
+                    <h3 class="font-bold text-lg mb-2">Cabañas del Bosque</h3>
+                    <p class="text-gray-400">Tu escapada perfecta a la naturaleza. Vive una experiencia inolvidable.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-2">Enlaces Rápidos</h3>
+                    <ul class="text-gray-400">
+                        <li class="mb-1"><a href="#" class="hover:text-white">Inicio</a></li>
+                        <li class="mb-1"><a href="#galeria" class="hover:text-white">Galería</a></li>
+                        <li class="mb-1"><a href="#servicios" class="hover:text-white">Servicios</a></li>
+                        <li class="mb-1"><a href="#reserva" class="hover:text-white">Reservar</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-2">Contacto y Horarios</h3>
+                    <p class="text-gray-400">Teléfono: +52 55 1234 5678</p>
+                    <p class="text-gray-400">Email: contacto@cabanasdelbosque.com</p>
+                    <p class="text-gray-400 mt-2">Atención: Lunes a Domingo, 9:00 AM - 7:00 PM</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-500">
+                <p>&copy; 2024 Cabañas del Bosque. Todos los derechos reservados.</p>
+                <a href="#" class="hover:text-white text-sm">Aviso de Privacidad</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // JavaScript para el menú móvil
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Cerrar menú al hacer clic en un enlace
+        const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
+        for (let link of mobileMenuLinks) {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        }
+    </script>
+</body>
+</html>

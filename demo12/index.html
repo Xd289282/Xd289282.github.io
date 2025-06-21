@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cabañas del Bosque Encantado - Refugio Natural</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e35;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, rgba(76, 122, 84, 0.95), rgba(45, 62, 53, 0.95)), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .navbar {
+            padding: 1rem 5%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .navbar.scrolled .logo {
+            color: #2c3e35;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .navbar.scrolled .nav-menu a {
+            color: #2c3e35;
+        }
+
+        .nav-menu a:hover {
+            color: #7fb069;
+            transform: translateY(-2px);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #7fb069;
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .hero-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hero-text {
+            max-width: 800px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+            color: #fff;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-text p {
+            font-size: 1.5rem;
+            color: #f0f8e8;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #7fb069, #9cc281);
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(127, 176, 105, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(127, 176, 105, 0.4);
+            background: linear-gradient(45deg, #9cc281, #7fb069);
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 5%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2c3e35;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(45deg, #7fb069, #9cc281);
+            border-radius: 2px;
+        }
+
+        /* Gallery */
+        .gallery {
+            background: linear-gradient(135deg, #f8fbf6, #ffffff);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: #fff;
+            padding: 2rem 1.5rem 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* Services */
+        .services {
+            background: #2c3e35;
+            color: #fff;
+        }
+
+        .services .section-title {
+            color: #fff;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: #7fb069;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Location */
+        .location {
+            background: linear-gradient(135deg, #f8fbf6, #ffffff);
+        }
+
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .location-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e35;
+        }
+
+        .location-info p {
+            margin-bottom: 1rem;
+            color: #666;
+        }
+
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            height: 400px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Contact Form */
+        .contact {
+            background: #2c3e35;
+            color: #fff;
+        }
+
+        .contact .section-title {
+            color: #fff;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #f0f8e8;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #7fb069, #9cc281);
+            color: #fff;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(127, 176, 105, 0.3);
+        }
+
+        .contact-info {
+            padding: 2rem 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(10px);
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: #7fb069;
+            margin-right: 1rem;
+            width: 30px;
+        }
+
+        .contact-item a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: #7fb069;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a2920;
+            color: #fff;
+            padding: 3rem 5% 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #7fb069;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: #7fb069;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #7fb069;
+            color: #fff;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #9cc281;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #999;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .navbar.scrolled .mobile-menu-btn {
+            color: #2c3e35;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(44, 62, 53, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 2rem;
+                transition: left 0.3s ease;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text p {
+                font-size: 1.2rem;
+            }
+
+            .section {
+                padding: 3rem 5%;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .contact-content,
+            .location-content {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 1rem 3%;
+            }
+
+            .section {
+                padding: 2rem 3%;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-text p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar" id="navbar">
+            <div class="nav-container">
+                <a href="#" class="logo">
+                    <i class="fas fa-tree"></i>
+                    Cabañas del Bosque Encantado
+                </a>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#ubicacion">Ubicación</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+        
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Desconéctate del Mundo</h1>
+                <p>Reconnéctate contigo mismo en nuestras acogedoras cabañas rodeadas de naturaleza pura</p>
+                <a href="#contacto" class="cta-button">
+                    <i class="fas fa-calendar-alt"></i> Reserva Ahora
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Gallery Section -->
+    <section class="gallery section" id="galeria">
+        <div class="container">
+            <h2 class="section-title">Descubre Tu Refugio Natural</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Cabaña exterior">
+                    <div class="gallery-overlay">
+                        <h3>Cabañas Acogedoras</h3>
+                        <p>Diseño rústico con todas las comodidades modernas</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" alt="Sendero en el bosque">
+                    <div class="gallery-overlay">
+                        <h3>Senderos Naturales</h3>
+                        <p>Explora la belleza del bosque en caminatas guiadas</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2060&q=80" alt="Interior de cabaña">
+                    <div class="gallery-overlay">
+                        <h3>Interiores Cálidos</h3>
+                        <p>Espacios confortables con chimenea y vistas al bosque</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1502780402662-acc01917819e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Fogata nocturna">
+                    <div class="gallery-overlay">
+                        <h3>Noches de Fogata</h3>
+                        <p>Momentos mágicos bajo las estrellas</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1440778303588-435521a205b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Paisaje del bosque">
+                    <div class="gallery-overlay">
+                        <h3>Paisajes Únicos</h3>
+                        <p>Vistas panorámicas que te conectan con la naturaleza</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1542718610-a1d656d1884c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Actividades al aire libre">
+                    <div class="gallery-overlay">
+                        <h3>Aventuras Naturales</h3>
+                        <p>Actividades para toda la familia en entorno natural</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services section" id="servicios">
+        <div class="container">
+            <h2 class="section-title">Servicios y Amenidades</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-home"></i>
+                    <h3>Alojamiento Premium</h3>
+                    <p>Cabañas completamente equipadas con cocina, baño privado y área de descanso</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-fire"></i>
+                    <h3>Chimenea Incluida</h3>
+                    <p>Disfruta de noches cálidas y acogedoras con nuestra chimenea de leña</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-hiking"></i>
+                    <h3>Senderos Guiados</h3>
+                    <p>Explora rutas seguras con guías expertos conocedores de la flora local</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-campfire"></i>
+                    <h3>Área de Fogatas</h3>
+                    <p>Espacios designados para fogatas nocturnas con leña incluida</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-car"></i>
+                    <h3>Estacionamiento</h3>
+                    <p>Área de estacionamiento segura y gratuita para todos nuestros huéspedes</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-mountain"></i>
+                    <h3>Actividades Naturales</h3>
+                    <p>Observación de aves, fotografía natural y talleres de supervivencia</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location section" id="ubicacion">
+        <div class="container">
+            <h2 class="section-title">Nuestra Ubicación</h2>
+            <div class="location-content">
+                <div class="location-info">
+                    <h3><i class="fas fa-map-marker-alt"></i> Encontranos Aquí</h3>
+                    <p><strong>Dirección:</strong> Km 45 Carretera Nacional, Sierra de Guadalupe, Hidalgo, México</p>
+                    <p><strong>A solo 2 horas de la Ciudad de México</strong></p>
+                    <p>Nuestras cabañas están estratégicamente ubicadas en el corazón del bosque, ofreciendo privacidad y conexión total con la naturaleza. El acceso es por camino pavimentado hasta el último kilómetro.</p>
+                    <p><strong>Coordenadas GPS:</strong> 20.1234°N, 98.5678°W</p>
+                    <div style="margin-top: 2rem;">
+                        <h4>Cómo llegar:</h4>
+                        <ul style="margin-left: 2rem; margin-top: 1rem;">
+                            <li>Desde CDMX: Autopista México-Pachuca</li>
+                            <li>Tomar salida Sierra de Guadalupe</li>
+                            <li>Seguir señalización "Cabañas del Bosque"</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d476272.4745931132!2d-99.20538067968701!3d20.12344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d35b8b8b8b8b8b%3A0x1234567890abcdef!2sPachuca%20de%20Soto%2C%20Hidalgo!5e0!3m2!1ses!2smx!4v1234567890123!5m2!1ses!2smx"
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section" id="contacto">
+        <div class="container">
+            <h2 class="section-title">Reserva Tu Escape Natural</h2>
+            <div class="contact-content">
+                <div class="contact-form">
+                    <h3>Formulario de Reserva</h3>
+                    <form id="reservationForm">
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo *</label>
+                            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico *</label>
+                            <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono *</label>
+                            <input type="tel" id="telefono" name="telefono" required placeholder="55 1234 5678">
+                        </div>
+                        <div class="form-group">
+                            <label for="checkin">Fecha de Llegada *</label>
+                            <input type="date" id="checkin" name="checkin" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="checkout">Fecha de Salida *</label>
+                            <input type="date" id="checkout" name="checkout" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="personas">Número de Personas *</label>
+                            <select id="personas" name="personas" required>
+                                <option value="">Selecciona...</option>
+                                <option value="1">1 persona</option>
+                                <option value="2">2 personas</option>
+                                <option value="3">3 personas</option>
+                                <option value="4">4 personas</option>
+                                <option value="5">5 personas</option>
+                                <option value="6+">6 o más personas</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje Adicional</label>
+                            <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos sobre alguna solicitud especial..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Enviar Reserva
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="contact-info">
+                    <h3>Contacto Directo</h3>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <strong>WhatsApp</strong><br>
+                            <a href="
