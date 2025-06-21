@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tlazocamati - Renta de Cabañas en el Bosque</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Playfair Display & Lato -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌲</text></svg>">
+
+    <style>
+        /* Estilos personalizados y configuración de Tailwind */
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #f8f6f2; /* Un beige muy claro */
+        }
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-banner {
+            background-image: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1559703248-dca719707ee1?q=80&w=1887&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        /* Efecto de zoom suave en las imágenes de la galería */
+        .gallery-item img {
+            transition: transform 0.4s ease-in-out;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="text-gray-700">
+
+    <!-- =========== Header =========== -->
+    <header id="header" class="bg-transparent text-white absolute top-0 left-0 w-full z-50 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-serif font-bold tracking-wider">Tlazocamati</a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#galeria" class="hover:text-amber-200 transition-colors">Galería</a>
+                <a href="#servicios" class="hover:text-amber-200 transition-colors">Servicios</a>
+                <a href="#ubicacion" class="hover:text-amber-200 transition-colors">Ubicación</a>
+                <a href="#reserva" class="bg-amber-600 text-white px-5 py-2 rounded-full hover:bg-amber-700 transition-transform transform hover:scale-105 shadow-lg">Reservar Ahora</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="focus:outline-none">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black/80 backdrop-blur-sm">
+            <a href="#galeria" class="block text-center py-3 text-white hover:bg-amber-700 transition-colors">Galería</a>
+            <a href="#servicios" class="block text-center py-3 text-white hover:bg-amber-700 transition-colors">Servicios</a>
+            <a href="#ubicacion" class="block text-center py-3 text-white hover:bg-amber-700 transition-colors">Ubicación</a>
+            <a href="#reserva" class="block text-center py-4 text-white bg-amber-600 hover:bg-amber-700 font-bold">Reservar Ahora</a>
+        </div>
+    </header>
+
+    <!-- =========== Hero Banner Section =========== -->
+    <section class="hero-banner h-screen flex flex-col justify-center items-center text-white p-4 pt-20">
+        <div class="text-center">
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-extrabold drop-shadow-xl mb-4">El Bosque te Llama</h1>
+            <p class="text-xl md:text-2xl font-light max-w-2xl mx-auto drop-shadow-lg mb-8">Una experiencia de paz y confort en cabañas diseñadas para tu descanso.</p>
+            <a href="#reserva" class="bg-amber-600 text-white font-bold text-lg px-8 py-4 rounded-full hover:bg-amber-700 transition-all transform hover:scale-105 shadow-2xl inline-block">
+                Reservar Mi Estancia
+            </a>
+        </div>
+        <div class="absolute bottom-10 animate-bounce">
+            <a href="#galeria">
+                <svg class="w-8 h-8 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- =========== Main Content =========== -->
+    <main>
+
+        <!-- =========== Galería Section =========== -->
+        <section id="galeria" class="py-16 md:py-24 bg-white scroll-mt-4">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold text-gray-800">Un Vistazo a tu Próxima Escapada</h2>
+                    <p class="text-lg text-gray-600 mt-2">Cada rincón está pensado para tu comodidad y conexión con la naturaleza.</p>
+                </div>
+                <!-- Masonry-like Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="grid gap-4">
+                        <div class="gallery-item overflow-hidden rounded-lg shadow-md">
+                            <!-- Esta es la imagen que subiste -->
+                            <img class="h-auto w-full" src="https://i.imgur.com/G0aJd1B.jpg" alt="Entrada privada y jardín de las cabañas Tlazocamati.">
+                        </div>
+                        <div class="gallery-item overflow-hidden rounded-lg shadow-md">
+                            <img class="h-auto w-full" src="https://images.unsplash.com/photo-1525113990976-39853907a448?q=80&w=1887&auto=format&fit=crop" alt="Interior acogedor de una cabaña con chimenea de piedra.">
+                        </div>
+                    </div>
+                    <div class="grid gap-4">
+                        <div class="gallery-item overflow-hidden rounded-lg shadow-md">
+                            <img class="h-auto w-full" src="https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=2070&auto=format&fit=crop" alt="Sendero mágico y brumoso en medio de un bosque verde.">
+                        </div>
+                        <div class="gallery-item overflow-hidden rounded-lg shadow-md">
+                            <img class="h-auto w-full" src="https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?q=80&w=2070&auto=format&fit=crop" alt="Muelle de madera en un lago tranquilo al amanecer.">
+                        </div>
+                    </div>
+                    <div class="grid gap-4">
+                       <div class="gallery-item overflow-hidden rounded-lg shadow-md">
+                            <img class="h-auto w-full" src="https://images.unsplash.com/photo-1501854140801-50d01698950b?q=80&w=1950&auto=format&fit=crop" alt="Vista aérea de un paisaje montañoso con un río serpenteante.">
+                        </div>
+                        <div class="gallery-item overflow-hidden rounded-lg shadow-md">
+                            <img class="h-auto w-full" src="https://images.unsplash.com/photo-1496950866446-3253e1470e8e?q=80&w=2070&auto=format&fit=crop" alt="Persona relajada en una hamaca entre dos árboles en el bosque.">
+                        </div>
+                    </div>
+                    <div class="grid gap-4">
+                        <div class="gallery-item overflow-hidden rounded-lg shadow-md">
+                            <img class="h-auto w-full" src="https://images.unsplash.com/photo-1505873242700-f289a29e1e0f?q=80&w=1903&auto=format&fit=crop" alt="Detalle de la arquitectura de madera de una de las cabañas.">
+                        </div>
+                         <div class="gallery-item overflow-hidden rounded-lg shadow-md">
+                            <img class="h-auto w-full" src="https://images.unsplash.com/photo-1519999482648-25049ddd37b1?q=80&w=1887&auto=format&fit=crop" alt="Mesa de madera con café caliente y un libro abierto en un porche.">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========== Servicios Section =========== -->
+        <section id="servicios" class="py-16 md:py-24 scroll-mt-16">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold text-gray-800">Comodidades Incluidas</h2>
+                    <p class="text-lg text-gray-600 mt-2">Todo lo que necesitas para una estancia inolvidable.</p>
+                </div>
+                <div class="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-10">
+                    <div class="text-center">
+                        <div class="text-amber-600 mb-3 mx-auto w-16 h-16 flex items-center justify-center bg-amber-50 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+                        </div>
+                        <h3 class="font-bold text-xl">Cabañas Privadas</h3>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-amber-600 mb-3 mx-auto w-16 h-16 flex items-center justify-center bg-amber-50 rounded-full">
+                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1.333a1 1 0 01-2 0V3a1 1 0 011-1zm6.268 3.033a1 1 0 01.033 1.41l-4.243 4.242a1 1 0 01-1.415-1.414l4.243-4.243a1 1 0 011.382-.033zM3.732 5.033a1 1 0 011.382.033l4.243 4.242a1 1 0 11-1.415 1.415L3.765 6.443a1 1 0 01-.033-1.41zM2 12a1 1 0 011-1h14a1 1 0 110 2H3a1 1 0 01-1-1zm2 3a1 1 0 00-1 1v1a1 1 0 102 0v-1a1 1 0 00-1-1zm12 0a1 1 0 00-1 1v1a1 1 0 102 0v-1a1 1 0 00-1-1z" clip-rule="evenodd" /></svg>
+                        </div>
+                        <h3 class="font-bold text-xl">Chimenea</h3>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-amber-600 mb-3 mx-auto w-16 h-16 flex items-center justify-center bg-amber-50 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7.C14 5 16.09 5.777 17.657 7.343A8 8 0 0117.657 18.657z" /></svg>
+                        </div>
+                        <h3 class="font-bold text-xl">Fogatas Nocturnas</h3>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-amber-600 mb-3 mx-auto w-16 h-16 flex items-center justify-center bg-amber-50 rounded-full">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                        </div>
+                        <h3 class="font-bold text-xl">Senderismo</h3>
+                    </div>
+                     <div class="text-center">
+                        <div class="text-amber-600 mb-3 mx-auto w-16 h-16 flex items-center justify-center bg-amber-50 rounded-full">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2a4 4 0 00-4-4H5a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2zm8-10V5a2 2 0 00-2-2H9a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2zM9 17v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2h-2a2 2 0 00-2 2z" /></svg>
+                        </div>
+                        <h3 class="font-bold text-xl">Estacionamiento</h3>
+                    </div>
+                     <div class="text-center">
+                        <div class="text-amber-600 mb-3 mx-auto w-16 h-16 flex items-center justify-center bg-amber-50 rounded-full">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        </div>
+                        <h3 class="font-bold text-xl">Temazcal</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========== Reserva y Ubicación Section =========== -->
+        <section id="reserva" class="py-16 md:py-24 bg-white scroll-mt-16">
+            <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                 <!-- Formulario -->
+                <div class="order-2 lg:order-1">
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold text-gray-800 mb-2">Reserva tu Fecha</h2>
+                    <p class="text-lg text-gray-600 mb-8">Completa el formulario y nos pondremos en contacto a la brevedad para confirmar.</p>
+                    <form action="#" method="POST" class="space-y-4">
+                        <div>
+                            <label for="name" class="font-semibold">Nombre</label>
+                            <input type="text" id="name" name="name" class="mt-2 w-full px-4 py-3 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 transition" required>
+                        </div>
+                         <div>
+                            <label for="contact" class="font-semibold">Email o Teléfono</label>
+                            <input type="text" id="contact" name="contact" class="mt-2 w-full px-4 py-3 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 transition" required>
+                        </div>
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                               <label for="dates" class="font-semibold">Fechas Deseadas</label>
+                               <input type="text" id="dates" placeholder="Ej. 24-26 de Diciembre" class="mt-2 w-full px-4 py-3 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 transition" required>
+                            </div>
+                            <div>
+                               <label for="guests" class="font-semibold">No. de Huéspedes</label>
+                               <input type="number" id="guests" min="1" class="mt-2 w-full px-4 py-3 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 transition" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="w-full bg-amber-600 text-white font-bold py-4 px-4 rounded-lg hover:bg-amber-700 transition-all transform hover:scale-105 shadow-lg">
+                            Enviar mi Solicitud de Reserva
+                        </button>
+                    </form>
+                </div>
+                <!-- Ubicación y Mapa -->
+                <div id="ubicacion" class="order-1 lg:order-2">
+                     <h2 class="text-4xl md:text-5xl font-serif font-bold text-gray-800 mb-2">¿Cómo Llegar?</h2>
+                     <p class="text-lg text-gray-600 mb-6">Nos encontramos en el corazón de la zona boscosa de San Miguel Regla, Hidalgo. Un oasis de paz de fácil acceso.</p>
+                     <div class="aspect-w-4 aspect-h-3 rounded-lg overflow-hidden shadow-2xl">
+                       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3745.397022204781!2d-98.5816982855903!3d20.15878438647706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d0f424b967d363%3A0x6e7e606a5a4a62e3!2sSan%20Miguel%20Regla%2C%20Hgo.!5e0!3m2!1ses!2smx!4v1684351298765!5m2!1ses!2smx" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- =========== Footer =========== -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-12">
+            <div class="text-center mb-8">
+                 <a href="#" class="text-3xl font-serif font-bold tracking-wider">Tlazocamati</a>
+                 <p class="text-gray-400 mt-2">Gracias por considerarnos tu hogar en el bosque.</p>
+            </div>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="https://wa.me/5215512345678" target="_blank" class="text-gray-400 hover:text-white transition"><span class="sr-only">WhatsApp</span><svg class="w-7 h-7" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592z"/></svg></a>
+                <a href="#" target="_blank" class="text-gray-400 hover:text-white transition"><span class="sr-only">Instagram</span><svg class="w-7 h-7" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372.527-.205.973-.478 1.417-.923.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.232s.008-2.389.046-3.232c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.843-.038 1.096-.047 3.232-.047h.001zM8 4.865a3.135 3.135 0 1 0 0 6.27 3.135 3.135 0 0 0 0-6.27zM8 9.333a1.333 1.333 0 1 1 0-2.666 1.333 1.333 0 0 1 0 2.666zm4.945-6.402a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92z"/></svg></a>
+                <a href="#" target="_blank" class="text-gray-400 hover:text-white transition"><span class="sr-only">Facebook</span><svg class="w-7 h-7" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0 0 3.603 0 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/></svg></a>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-500 text-sm">
+                <p>&copy; 2025 Tlazocamati Cabañas. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // JavaScript para menú móvil y header con fondo al hacer scroll
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const header = document.getElementById('header');
+
+        mobileMenuButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Cerrar menú al hacer clic en un enlace del menú móvil
+        const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
+        for (let link of mobileMenuLinks) {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        }
+
+        // Cambiar fondo del header al hacer scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.remove('bg-transparent', 'text-white');
+                header.classList.add('bg-white', 'text-gray-800', 'shadow-md');
+            } else {
+                header.classList.add('bg-transparent', 'text-white');
+                header.classList.remove('bg-white', 'text-gray-800', 'shadow-md');
+            }
+        });
+    </script>
+</body>
+</html>
