@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Jardín de Eventos - Tu Celebración Soñada</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Aplicamos las tipografías personalizadas */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Estilo para el botón flotante de WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header y Navegación -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gray-800">El Jardín de Eventos</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#galeria" class="text-gray-600 hover:text-green-800 transition">Galería</a>
+                <a href="#servicios" class="text-gray-600 hover:text-green-800 transition">Servicios</a>
+                <a href="#nosotros" class="text-gray-600 hover:text-green-800 transition">Sobre Nosotros</a>
+                <a href="#contacto" class="text-gray-600 hover:text-green-800 transition">Contacto</a>
+            </div>
+            <a href="#contacto" class="hidden md:block bg-green-700 text-white py-2 px-4 rounded-full hover:bg-green-800 transition">
+                Cotiza tu Evento
+            </a>
+            <button id="mobile-menu-button" class="md:hidden">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </nav>
+        <!-- Menú Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white">
+            <a href="#galeria" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Galería</a>
+            <a href="#servicios" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Servicios</a>
+            <a href="#nosotros" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Sobre Nosotros</a>
+            <a href="#contacto" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Contacto</a>
+            <a href="#contacto" class="block text-center w-full bg-green-700 text-white py-2 mt-2 hover:bg-green-800 transition">
+                Cotiza tu Evento
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative h-[60vh] md:h-[80vh] bg-cover bg-center text-white" style="background-image: url('https://placehold.co/1600x900/4F7942/FFFFFF?text=Vista+del+Jardín');">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                <div class="text-center">
+                    <h1 class="text-4xl md:text-7xl font-bold leading-tight">Donde tus momentos especiales florecen</h1>
+                    <p class="mt-4 text-lg md:text-xl">Haz de tu evento un momento inolvidable.</p>
+                    <a href="#contacto" class="mt-8 inline-block bg-white text-green-800 font-bold py-3 px-8 rounded-full hover:bg-gray-200 transition text-lg">
+                        Agenda una Visita
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galería de Imágenes -->
+        <section id="galeria" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-12">Nuestros Eventos</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-300">
+                        <img src="https://placehold.co/600x400/D4AF37/FFFFFF?text=Montaje+de+Boda" alt="Montaje de boda elegante en el jardín" class="w-full h-64 object-cover">
+                        <div class="p-4 bg-white">
+                            <h3 class="font-bold text-xl">Bodas de Ensueño</h3>
+                        </div>
+                    </div>
+                    <div class="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-300">
+                        <img src="https://placehold.co/600x400/FFC0CB/FFFFFF?text=Montaje+XV+Años" alt="Decoración para fiesta de XV años" class="w-full h-64 object-cover">
+                        <div class="p-4 bg-white">
+                            <h3 class="font-bold text-xl">XV Años Mágicos</h3>
+                        </div>
+                    </div>
+                    <div class="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-300">
+                        <img src="https://placehold.co/600x400/87CEEB/FFFFFF?text=Montaje+Bautizo" alt="Montaje para bautizo con detalles azules" class="w-full h-64 object-cover">
+                         <div class="p-4 bg-white">
+                            <h3 class="font-bold text-xl">Bautizos y Primeras Comuniones</h3>
+                        </div>
+                    </div>
+                    <div class="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-300">
+                        <img src="https://placehold.co/600x400/FFA500/FFFFFF?text=Fiesta+de+Cumpleaños" alt="Fiesta de cumpleaños colorida" class="w-full h-64 object-cover">
+                         <div class="p-4 bg-white">
+                            <h3 class="font-bold text-xl">Cumpleaños Inolvidables</h3>
+                        </div>
+                    </div>
+                     <div class="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-300">
+                        <img src="https://placehold.co/600x400/A9A9A9/FFFFFF?text=Evento+Corporativo" alt="Evento corporativo en el jardín" class="w-full h-64 object-cover">
+                         <div class="p-4 bg-white">
+                            <h3 class="font-bold text-xl">Eventos Corporativos</h3>
+                        </div>
+                    </div>
+                     <div class="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-300">
+                        <img src="https://placehold.co/600x400/556B2F/FFFFFF?text=Jardín+de+Noche" alt="Jardín iluminado por la noche" class="w-full h-64 object-cover">
+                         <div class="p-4 bg-white">
+                            <h3 class="font-bold text-xl">Ambiente Nocturno</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Servicios -->
+        <section id="servicios" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-12">Servicios para tu Evento</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <i data-lucide="home" class="mx-auto w-12 h-12 text-green-700 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Renta del Jardín</h3>
+                        <p>Un espacio exclusivo y versátil para tu celebración.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <i data-lucide="utensils-crossed" class="mx-auto w-12 h-12 text-green-700 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Banquetes Exquisitos</h3>
+                        <p>Menús personalizables con ingredientes de la más alta calidad.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <i data-lucide="sofa" class="mx-auto w-12 h-12 text-green-700 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Mobiliario y Montaje</h3>
+                        <p>Contamos con sillas, mesas y mantelería para cada estilo.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <i data-lucide="flower-2" class="mx-auto w-12 h-12 text-green-700 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Decoración Personalizada</h3>
+                        <p>Creamos la atmósfera perfecta que siempre soñaste.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <i data-lucide="music" class="mx-auto w-12 h-12 text-green-700 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Música y DJ</h3>
+                        <p>El mejor ambiente para que tus invitados no paren de bailar.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <i data-lucide="car" class="mx-auto w-12 h-12 text-green-700 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Valet Parking</h3>
+                        <p>Comodidad y seguridad para todos tus invitados.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sobre Nosotros -->
+        <section id="nosotros" class="py-20 bg-white">
+            <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2">
+                    <img src="https://placehold.co/600x400/2E8B57/FFFFFF?text=Equipo+del+Salón" alt="Nuestro equipo de trabajo sonriendo" class="rounded-lg shadow-xl w-full">
+                </div>
+                <div class="md:w-1/2 md:pl-12 mt-8 md:mt-0">
+                    <h2 class="text-4xl font-bold mb-4">Nuestra Pasión es Celebrar Contigo</h2>
+                    <p class="text-gray-600 mb-4">
+                        En "El Jardín de Eventos" tenemos más de 10 años de experiencia convirtiendo sueños en realidad. Somos un equipo apasionado por los detalles, la atención personalizada y la excelencia en el servicio.
+                    </p>
+                    <p class="text-gray-600">
+                        Nuestro compromiso es entender tu visión y trabajar contigo para crear un evento único e inolvidable. Cuidamos cada aspecto para que tú solo te preocupes por disfrutar.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonios -->
+        <section id="testimonios" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-12">Lo que dicen nuestros clientes</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <p class="text-gray-600 italic">"¡El lugar es un sueño! La boda de mi hija fue perfecta. El equipo se encargó de todo y la atención fue increíble. Todos nuestros invitados quedaron fascinados."</p>
+                        <div class="flex items-center mt-4">
+                            <img src="https://placehold.co/100x100/FFC0CB/000000?text=LC" class="w-12 h-12 rounded-full mr-4" alt="Foto de Laura C.">
+                            <div>
+                                <p class="font-bold">Laura C.</p>
+                                <p class="text-sm text-gray-500">Boda, Octubre 2023</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <p class="text-gray-600 italic">"Festejamos el bautizo de nuestro bebé aquí y no pudimos elegir mejor. El jardín es hermoso y seguro para los niños. La comida deliciosa y el servicio de primera."</p>
+                        <div class="flex items-center mt-4">
+                             <img src="https://placehold.co/100x100/87CEEB/000000?text=MJ" class="w-12 h-12 rounded-full mr-4" alt="Foto de Miguel J.">
+                            <div>
+                                <p class="font-bold">Miguel J.</p>
+                                <p class="text-sm text-gray-500">Bautizo, Diciembre 2023</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contacto y Mapa -->
+        <section id="contacto" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-12">Contáctanos</h2>
+                <div class="flex flex-col lg:flex-row bg-gray-50 p-8 rounded-lg shadow-xl">
+                    <!-- Formulario -->
+                    <div class="lg:w-1/2 lg:pr-8">
+                        <h3 class="text-2xl font-bold mb-4">Solicita tu cotización</h3>
+                        <form action="#" method="POST">
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 font-bold mb-2">Nombre Completo</label>
+                                <input type="text" id="name" name="name" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 font-bold mb-2">Correo Electrónico</label>
+                                <input type="email" id="email" name="email" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                            </div>
+                             <div class="mb-4">
+                                <label for="phone" class="block text-gray-700 font-bold mb-2">Teléfono</label>
+                                <input type="tel" id="phone" name="phone" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="event_type" class="block text-gray-700 font-bold mb-2">Tipo de Evento</label>
+                                <select id="event_type" name="event_type" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                                    <option>Boda</option>
+                                    <option>XV Años</option>
+                                    <option>Bautizo / Comunión</option>
+                                    <option>Cumpleaños</option>
+                                    <option>Evento Corporativo</option>
+                                    <option>Otro</option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="block text-gray-700 font-bold mb-2">Mensaje</label>
+                                <textarea id="message" name="message" rows="4" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" required></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-green-700 text-white font-bold py-3 px-4 rounded-full hover:bg-green-800 transition">Enviar Solicitud</button>
+                        </form>
+                    </div>
+                    <!-- Mapa e Info -->
+                    <div class="lg:w-1/2 mt-8 lg:mt-0 lg:pl-8">
+                        <h3 class="text-2xl font-bold mb-4">Visítanos</h3>
+                        <div class="w-full h-80 rounded-lg overflow-hidden shadow-md">
+                           <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119979.69239840243!2d-98.8524419972656!3d20.100527300000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d109f400754867%3A0x64e3146132483d78!2sPachuca%20de%20Soto%2C%20Hgo.!5e0!3m2!1ses-419!2smx!4v1718991307684!5m2!1ses-419!2smx"
+                                width="100%" 
+                                height="100%" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                        <div class="mt-6 text-center">
+                            <p class="text-gray-700 font-semibold">Blvd. Everardo Márquez 123, Pachuca, Hidalgo</p>
+                            <a href="tel:+527711234567" class="block mt-4 text-green-700 hover:text-green-900 text-lg font-bold">
+                                <i data-lucide="phone" class="inline-block mr-2 w-5 h-5"></i>
+                                Llámanos: 771-123-4567
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 El Jardín de Eventos. Todos los derechos reservados.</p>
+            <p class="text-sm text-gray-400 mt-2">Diseño web con ❤️</p>
+        </div>
+    </footer>
+    
+    <!-- Botón Flotante de WhatsApp -->
+    <a href="https://api.whatsapp.com/send?phone=527711234567&text=Hola,%20me%20gustaría%20pedir%20información%20sobre%20sus%20servicios." class="whatsapp-float" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+          <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+        </svg>
+    </a>
+
+    <script>
+        // Inicializa Lucide Icons
+        lucide.createIcons();
+
+        // Lógica para el menú móvil
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Cierra el menú móvil al hacer clic en un enlace
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+
+</body>
+</html>
